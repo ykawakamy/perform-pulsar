@@ -60,7 +60,7 @@ public class PulsarPollingConsumer {
                 }
 
                 PerformSnapshot snap = pc.reset();
-                log.info("{}: {} op, {} errors, {} ns/op, latency: {} ms/op", topic, snap.getPerform(), snap.getErr(), snap.getElapsedPerOperation(et-st), snap.getLatencyPerOperation() );
+                snap.print(log, et-st);
             }
         } catch( Throwable th ) {
             th.printStackTrace();
